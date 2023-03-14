@@ -1,4 +1,4 @@
-export type Product = {
+export interface Product {
    brand: string
    category: string
    description: string
@@ -6,8 +6,14 @@ export type Product = {
    id: number
    images: string[]
    price: number
-   rating:number
+   rating: number
    stock: number
    thumbnail: string
    title: string
+}
+
+export interface Error {
+   message: string
+   name: string
+   stack: string
 }

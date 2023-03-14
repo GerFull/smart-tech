@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import { useAppDispatch, useAppSelector } from "./hook";
 import Routes from "./pages/routes";
 import { useEffect } from 'react';
-import { fetchProduct } from "./store/slice/products";
+import { fetchProduct, getOneCategory } from "./store/slice/products";
 
 
 function App() {
@@ -12,21 +12,24 @@ function App() {
   const { list, loading, error } = useAppSelector(state => state.products)
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
     dispatch(fetchProduct())
+
+    //dispatch(getOneCategory('laptops'))
   }, [dispatch])
 
-  console.log(loading)
 
 
-  { error && <>404</> }
+
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes />
-      <Footer />
-    </BrowserRouter>
+    loading ? <h2>Loading...</h2> :
+      error ? <h2>An error occured: {error}</h2> :
+        <BrowserRouter>
+
+          <Header />
+          <Routes />
+          <Footer />
+        </BrowserRouter>
   );
 }
 

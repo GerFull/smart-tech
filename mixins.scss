@@ -1,0 +1,13 @@
+$menu_black: #0e1821;
+$blue: #4878A6;
+$dark_blue: #2a5275;
+$text_gray: #838688;
+$divider: #c8cacb;
+
+@mixin text1() {
+   font-family: "Exo 2";
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 19px;
+}

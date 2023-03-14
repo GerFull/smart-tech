@@ -1,4 +1,84 @@
-.header{
+@import "mixins";
+
+.header {
    display: flex;
-   gap:10px;
+   flex-direction: column;
+   justify-content: center;
+
+   &__up {
+      padding: 16px 310px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &_user {
+         display: flex;
+         align-items: center;
+      }
+      &_info {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+      }
+      &_infoNum{
+         @include text1();
+      }
+      &_infoDay{
+         @include text1();
+         color: $text_gray;
+      }
+      &_userIcons {
+         display: flex;
+         justify-content: center;
+      }
+
+      &_btn {
+         padding: 16px 26px;
+         background-color: $dark_blue;
+         color: white;
+         cursor: pointer;
+         @include text1();
+         border-radius: 5px;
+         user-select: auto;
+      }
+      &_btn:active {
+         background-color: $blue;
+      }
+   }
+
+   &__down {
+      padding: 0 310px;
+      display: flex;
+      background-color: $menu_black;
+      height: 60px;
+      &_catalog {
+         p {
+            @include text1();
+            color: white;
+            margin-left: 5px;
+         }
+         display: flex;
+         padding: 14px 0 14px 20px;
+         width: 310px;
+         justify-content: flex-start;
+         align-items: center;
+         user-select: none;
+         cursor: pointer;
+         background-color: $dark_blue;
+      }
+      &_tabs {
+         width: 100%;
+         margin-left: 24px;
+         display: flex;
+         align-items: center;
+         gap: 60px;
+      }
+
+      &_tab {
+         cursor: pointer;
+         user-select: none;
+         @include text1();
+         color: white;
+      }
+   }
 }
